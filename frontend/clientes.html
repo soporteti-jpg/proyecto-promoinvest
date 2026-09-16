@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes | Promoinvest SAF</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">Promoinvest SAF</div>
+      <nav>
+        <a class="staff-only" href="dashboard.html">Dashboard</a>
+        <a href="clientes.html">Clientes</a>
+        <a class="staff-only" href="valor-cuota.html">Valor cuota</a>
+        <a class="staff-only" href="suscripciones.html">Suscripciones</a>
+        <a class="staff-only" href="rescates.html">Rescates</a>
+        <button id="logoutButton" class="logout-button" type="button">Cerrar sesión</button>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <section id="resumenCliente" class="panel cliente-only" hidden>
+        <h3>Resumen de cuotas</h3>
+        <div class="stats">
+          <div class="stat-card">
+            <span>Cuotas actuales</span>
+            <strong id="cuotasActuales">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Importe referencial</span>
+            <strong id="importeActual">S/ 0.00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel staff-only">
+        <h3>Registro de clientes</h3>
+        <form id="clienteForm" class="cliente-form">
+          <div class="form-grid">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" required />
+            </div>
+            <div>
+              <label for="apellidos">Apellidos</label>
+              <input id="apellidos" name="apellidos" type="text" required />
+            </div>
+            <div>
+              <label for="dni">DNI</label>
+              <input id="dni" name="dni" type="text" inputmode="numeric" pattern="[0-9]{8,20}" maxlength="20" required />
+            </div>
+            <div>
+              <label for="correo">Correo del cliente</label>
+              <input id="correo" name="correo" type="email" placeholder="cliente@correo.com" required />
+            </div>
+            <div>
+              <label for="numero_cuotas">Número de cuotas</label>
+              <input id="numero_cuotas" name="numero_cuotas" type="number" min="1" required />
+            </div>
+            <div>
+              <label for="valor_cuota_diario_id">Valor cuota del día anterior</label>
+              <input id="valor_cuota_diario_id" name="valor_cuota_diario_id" type="text" readonly />
+            </div>
+            <div>
+              <label for="importe_total">Importe total</label>
+              <input id="importe_total" name="importe_total" type="text" readonly />
+            </div>
+            <div>
+              <label for="clave_inicial">Clave inicial del cliente</label>
+              <input id="clave_inicial" name="clave_inicial" type="text" value="123456" readonly />
+            </div>
+          </div>
+          <button type="submit">Guardar cliente</button>
+        </form>
+        <div id="clienteMessage" class="message"></div>
+      </section>
+
+      <section class="panel">
+        <h3 id="clientesTitle">Clientes registrados</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>DNI</th>
+              <th>Correo</th>
+              <th>Cuotas</th>
+              <th>Cuota diaria</th>
+              <th>Importe total</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="clientesTable"></tbody>
+        </table>
+      </section>
+
+      <section id="suscripcionesClientePanel" class="panel cliente-only" hidden>
+        <h3>Historial de suscripciones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Fecha</th>
+              <th>Cuotas</th>
+              <th>Valor cuota</th>
+              <th>Importe total</th>
+              <th>Saldo de cuotas</th>
+            </tr>
+          </thead>
+          <tbody id="suscripcionesClienteTable"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="js/clientes.js"></script>
+    <script src="js/logout.js"></script>
+  </body>
+</html>

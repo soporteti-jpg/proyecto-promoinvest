@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Promoinvest SAF S.A.A</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="login-body">
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Promoinvest SAF</h2>
+        <p>Ingreso al sistema</p>
+
+        <div class="access-selector" role="group" aria-label="Tipo de ingreso">
+          <button id="empleadoAccessButton" class="access-option active" type="button">Ingreso como empleado</button>
+          <button id="clienteAccessButton" class="access-option" type="button">Ingreso como cliente</button>
+        </div>
+
+        <form id="loginForm" class="access-form">
+          <label for="correo">Correo institucional</label>
+          <input type="email" id="correo" placeholder="usuario@promoinvest.com" required />
+
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+
+          <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <div id="empleadoInfo" class="info-box">
+          <strong>Usuarios de prueba</strong>
+          <p>admin@promoinvest.com / admin123</p>
+          <p>operaciones@promoinvest.com / operaciones123</p>
+        </div>
+
+        <div id="clienteAccess" class="client-access access-form" hidden>
+          <h3>Acceso de clientes</h3>
+          <form id="clienteLoginForm">
+            <label for="clienteId">ID del cliente</label>
+            <input type="number" id="clienteId" min="1" placeholder="Ej. 1" required />
+
+            <label for="clienteClave">Clave</label>
+            <input type="password" id="clienteClave" placeholder="123456" required />
+
+            <button type="submit">Ingresar como cliente</button>
+            <button id="resetClaveButton" class="secondary-button" type="button">Resetear clave</button>
+          </form>
+
+          <form id="resetClaveForm" class="reset-form" hidden>
+            <label for="resetCorreo">Correo registrado</label>
+            <input type="email" id="resetCorreo" placeholder="cliente@correo.com" required />
+            <button type="submit">Enviar solicitud al administrador</button>
+          </form>
+
+          <form id="cambioClaveForm" class="first-login-form" hidden>
+            <label for="nuevaClave">Nueva clave</label>
+            <input type="password" id="nuevaClave" minlength="6" required />
+            <button type="submit">Cambiar clave y continuar</button>
+          </form>
+        </div>
+
+        <div id="loginMessage" class="message"></div>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

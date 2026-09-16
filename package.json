@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-promoinvest-saf",
+  "version": "1.0.0",
+  "description": "Sistema de gestión y consulta de fondos mutuos",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "mysql2": "^3.12.0"
+  },
+  "keywords": [
+    "promoinvest",
+    "fondos-mutuo",
+    "suscripciones",
+    "rescates",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rescates | Promoinvest SAF</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">Promoinvest SAF</div>
+      <nav>
+        <a href="dashboard.html">Inicio</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="valor-cuota.html">Valor cuota</a>
+        <a href="suscripciones.html">Suscripciones</a>
+        <a href="rescates.html">Rescates</a>
+        <button id="logoutButton" class="logout-button" type="button">Cerrar sesión</button>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel">
+        <h3>Buscar cliente por DNI</h3>
+        <form id="buscarRescateForm" class="cliente-form">
+          <div class="form-grid">
+            <div>
+              <label for="buscarRescateDni">DNI</label>
+              <input id="buscarRescateDni" type="text" inputmode="numeric" pattern="[0-9]{8,20}" maxlength="20" required />
+            </div>
+          </div>
+          <button type="submit">Buscar cliente</button>
+        </form>
+        <div id="buscarRescateMessage" class="message"></div>
+      </section>
+
+      <section id="rescateConfirmacion" class="panel" hidden>
+        <h3>Confirmar cliente</h3>
+        <div class="client-summary">
+          <p><strong>DNI:</strong> <span id="rescateDni"></span></p>
+          <p><strong>Nombre:</strong> <span id="rescateNombre"></span></p>
+          <p><strong>Apellidos:</strong> <span id="rescateApellidos"></span></p>
+          <p><strong>Saldo de cuotas:</strong> <span id="rescateCuotasDisponibles"></span></p>
+        </div>
+        <form id="rescateForm" class="cliente-form">
+          <input id="rescateClienteId" type="hidden" />
+          <div class="form-grid">
+            <div>
+              <label for="rescateFecha">Fecha</label>
+              <input id="rescateFecha" type="date" readonly required />
+            </div>
+            <div>
+              <label for="rescateCuotas">Número de cuotas a rescatar</label>
+              <input id="rescateCuotas" type="number" min="1" required />
+            </div>
+            <div>
+              <label for="rescateValor">Valor cuota del día anterior</label>
+              <input id="rescateValor" type="text" readonly />
+            </div>
+            <div>
+              <label for="rescateImporte">Importe del rescate</label>
+              <input id="rescateImporte" type="text" readonly />
+            </div>
+          </div>
+          <button type="submit">Registrar rescate</button>
+        </form>
+        <div id="rescateMessage" class="message"></div>
+      </section>
+    </main>
+
+    <script src="js/rescates.js"></script>
+    <script src="js/logout.js"></script>
+  </body>
+</html>

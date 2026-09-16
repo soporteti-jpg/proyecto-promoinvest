@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valor cuota | Promoinvest SAF</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">Promoinvest SAF</div>
+      <nav>
+        <a class="staff-only" href="dashboard.html">Dashboard</a>
+        <a class="staff-only" href="clientes.html">Clientes</a>
+        <a class="staff-only" href="suscripciones.html">Suscripciones</a>
+        <a class="staff-only" href="rescates.html">Rescates</a>
+        <a href="valor-cuota.html">Valor cuota</a>
+        <button id="logoutButton" class="logout-button" type="button">Cerrar sesión</button>
+      </nav>
+    </header>
+
+    <main class="dashboard staff-only">
+      <section class="panel">
+        <h3>Registro de valor cuota</h3>
+        <form id="valorCuotaForm" class="cliente-form">
+          <div class="form-grid">
+            <div>
+              <label for="valorCuotaFecha">Fecha</label>
+              <input id="valorCuotaFecha" name="fecha" type="date" required />
+            </div>
+            <div>
+              <label for="valorCuotaMonto">Valor cuota</label>
+              <input id="valorCuotaMonto" name="valor_cuota" type="number" min="0.01" step="0.01" required />
+            </div>
+          </div>
+          <button type="submit">Guardar valor cuota</button>
+        </form>
+        <div id="valorCuotaMessage" class="message"></div>
+      </section>
+
+      <section class="panel">
+        <h3>Historial de valor cuota</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Valor cuota</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody id="valorCuotaTable"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="js/valor-cuota.js"></script>
+    <script src="js/logout.js"></script>
+  </body>
+</html>
